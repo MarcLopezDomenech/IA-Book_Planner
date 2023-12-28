@@ -21,30 +21,29 @@
   )
 
   (:action leer_libro
-    :parameters (?l - libro)
+    :parameters (?l - libro ?a - actual)
     :precondition (and (not(leido ?l))
-                       (> (paginasLibres (mes)) (paginas ?l))
-                       (imply (tien_prec ?l) (forall (?li - libro) (imply (precondición ?l ?li) (> (mes) (mes_lectura ?li))))
+                       (> (paginasLibres (mes ?a)) (paginas ?l))
+                       (imply (tien_prec ?l) (forall (?li - libro) (imply (precondición ?l ?li) (> (mes ?a) (mes_lectura ?li))))
                    )    
-    :effect (and (decrease (paginasLibres ?m) (paginas ?l)) 
-                  leer(?l ?m)
+    :effect (and (decrease (paginasLibres (mes ?a)) (paginas ?l))
                   leido(?l)
-                  (= (mes) (mes_lectura ?li))
+                  (= (mes ?a) (mes_lectura ?li))
             )
   )
 
   (:action siguiente_mes
-    :parameters ()
-    :precondition ((< (mes) 12))    
+    :parameters (?a - actual)
+    :precondition ((< (mes ?a) 12))    
     :effect (
-              (increase (mes) 1)
+              (increase (mes ?a) 1)
             )
   )
 
   (:action completar_libro
-    :parameters (?l - libro)
+    :parameters (?l - libro ?a - actual)
     :precondition (and (leido ?l)
-                       (imply (> (paralelo ?l) 0) (forall (?li - libro) (imply (= (paralelo ?li) (paralelo ?l)) (<(decrease (mes) (mes_lectura ?li)) 2))))
+                       (imply (> (paralelo ?l) 0) (forall (?li - libro) (imply (= (paralelo ?li) (paralelo ?l)) (<(decrease (mes ?a) (mes_lectura ?li)) 2))))
                    )    
     :effect (and completado(?l)
             (imply (> (paralelo ?l) 0) (forall (?li - libro) (imply (= (paralelo ?li) (paralelo ?l)) (completado(?li)))))
