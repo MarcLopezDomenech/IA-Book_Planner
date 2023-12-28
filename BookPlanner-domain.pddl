@@ -2,7 +2,7 @@
   (:requirements :adl :typing :fluents)
 
   (:types pendiente normal - libro
-          
+          actual - tiempo
   )           
 
   (:predicates
@@ -13,9 +13,9 @@
   )
 
   (:functions
-    (mes)
+    (mes ?a - actual)
     (mes_lectura ?l-libro)
-    (paginasLibres (mes))
+    (paginasLibres (mes ?a - actual))
     (paginas ?l - libro)
     (paralelo ?l - libro)
   )
