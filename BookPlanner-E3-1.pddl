@@ -45,14 +45,14 @@
     (= (paralelo P31) 3)
     (= (paralelo P32) 3)
 
-    (= (paginas P21) 0)
-    (= (paginas P22) 0)
-    (= (paginas P23) 0)
+    (= (paginas P21) 500)
+    (= (paginas P22) 500)
+    (= (paginas P23) 500)
     
-    (= (paginas P11) 0)
-    (= (paginas P12) 0)
-    (= (paginas P13) 0)
-    (= (paginas P14) 0)
+    (= (paginas P11) 200)
+    (= (paginas P12) 600)
+    (= (paginas P13) 300)
+    (= (paginas P14) 400)
 
     (= (paginas P31) 0)
     (= (paginas P32) 0)

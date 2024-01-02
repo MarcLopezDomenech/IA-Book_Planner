@@ -1,8 +1,8 @@
-(define (problem BookPlanner-paralelo1)
+(define (problem BookPlanner-paralelo2)
    (:domain BookPlanner)
    (:objects 
-      P14 P23 P21 - pendiente
-      P11 P12 P13 P22 P31 P32 - normal
+      P3 - pendiente
+      P1 P2 A1 A21 A22 A3 - normal
       antes enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre - tiempo
     )
 
@@ -33,29 +33,31 @@
     (= (paginasLibres noviembre) 800)
     (= (paginasLibres diciembre) 800)
 
-    (= (paralelo P21) 2)
-    (= (paralelo P22) 2)
-    (= (paralelo P23) 2)
+    (= (paralelo P1) 1)
+    (= (paralelo P2) 1)
+    (= (paralelo P3) 1)
+    (= (paralelo A1) 0)
+    (= (paralelo A21) 2)
+    (= (paralelo A22) 2)
+    (= (paralelo A3) 0)
 
-    (= (paralelo P11) 1)
-    (= (paralelo P12) 1)
-    (= (paralelo P13) 1)
-    (= (paralelo P14) 1)
+    (precondicion A21 A1)
+    (precondicion A22 A1)
+    (precondicion A3 A21)
+    (precondicion P1 A3)
 
-    (= (paralelo P31) 3)
-    (= (paralelo P32) 3)
+    (tien_prec A21)
+    (tien_prec A22)
+    (tien_prec A3)
+    (tien_prec P1)
 
-    (= (paginas P21) 0)
-    (= (paginas P22) 0)
-    (= (paginas P23) 0)
-    
-    (= (paginas P11) 0)
-    (= (paginas P12) 0)
-    (= (paginas P13) 0)
-    (= (paginas P14) 0)
-
-    (= (paginas P31) 0)
-    (= (paginas P32) 0)
+    (= (paginas P1) 200)
+    (= (paginas P2) 500)
+    (= (paginas P3) 300)
+    (= (paginas A1) 200)
+    (= (paginas A21) 400)
+    (= (paginas A22) 500)
+    (= (paginas A3) 300)
   )
 
   (:goal (forall (?p - pendiente) (completado ?p)))

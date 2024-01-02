@@ -1,0 +1,68 @@
+
+ff: parsing domain file
+domain 'BOOKPLANNER' defined
+ ... done.
+ff: parsing problem file
+problem 'BOOKPLANNER-PARALELO2' defined
+ ... done.
+
+
+no metric specified. plan length assumed.
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is EHC, if that fails then  best-first on 1*g(s) + 5*h(s) where
+    metric is  plan length
+
+Cueing down from goal distance:   18 into depth [1]
+                                  16            [1]
+                                  15            [1]
+                                  14            [1]
+                                  13            [1][2] --- pruning stopped --- [1][2]
+
+Enforced Hill-climbing failed !
+switching to Best-first Search now.
+
+
+advancing to distance:   18
+                         16
+                         15
+                         14
+                         13
+                         12
+                         10
+                          8
+                          6
+                          5
+                          4
+                          3
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: LEER_LIBRO A1 ENERO
+        1: COMPLETAR_LIBRO A1 ENERO
+        2: SIGUIENTE_MES
+        3: LEER_LIBRO A21 FEBRERO
+        4: SIGUIENTE_MES
+        5: LEER_LIBRO A22 MARZO
+        6: COMPLETAR_LIBRO A21 MARZO
+        7: LEER_LIBRO A3 MARZO
+        8: COMPLETAR_LIBRO A3 MARZO
+        9: SIGUIENTE_MES
+       10: LEER_LIBRO P2 ABRIL
+       11: SIGUIENTE_MES
+       12: LEER_LIBRO P1 MAYO
+       13: LEER_LIBRO P3 MAYO
+       14: COMPLETAR_LIBRO P3 MAYO
+     
+
+time spent:    0.00 seconds instantiating 1 easy, 182 hard action templates
+               0.00 seconds reachability analysis, yielding 21 facts and 169 actions
+               0.00 seconds creating final representation with 21 relevant facts, 32 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.11 seconds searching, evaluating 145 states, to a max depth of 2
+               0.11 seconds total time
+
