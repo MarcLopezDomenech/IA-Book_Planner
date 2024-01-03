@@ -19,6 +19,7 @@
     (paralelo ?l - libro)
     (num ?t -tiempo)
     (mes)
+    (coste)
   )
 
   (:action leer_libro
@@ -31,6 +32,7 @@
     :effect (and (decrease (paginasLibres ?t) (paginas ?l))
                 (leido ?l)
                 (assign (mes_lectura ?l) (mes))
+                (increase (coste) 1)
             )
   )
 

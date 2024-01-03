@@ -7,6 +7,7 @@
     )
 
   (:init
+    (= (coste) 0)
     (= (mes) 1)
     (= (num enero) 1)
     (= (num febrero) 2)
@@ -59,7 +60,7 @@
     (= (paginas IronMan) 800)
     (= (paginas Vengadores) 100)
   )
-
+  (:metric minimize (coste))
   (:goal (forall (?p - pendiente) (completado ?p)))
 )
 
