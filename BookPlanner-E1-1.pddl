@@ -1,12 +1,13 @@
 (define (problem BookPlanner-e1_1)
    (:domain BookPlanner)
    (:objects 
-      A B C D E - pendiente
-      A B C D E- normal
+      E - pendiente
+      A B C D - normal
       antes enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre - tiempo
     )
 
   (:init
+    (= (coste) 0)
     (= (mes) 1)
     (= (num enero) 1)
     (= (num febrero) 2)
@@ -47,12 +48,13 @@
     (precondicion E D)
 
 
-    (= (paginas A) 0)
-    (= (paginas B) 0)
-    (= (paginas C) 0)
-    (= (paginas D) 0)
-    (= (paginas E) 0)
+    (= (paginas A) 1)
+    (= (paginas B) 1)
+    (= (paginas C) 1)
+    (= (paginas D) 1)
+    (= (paginas E) 1)
   )
 
+  (:metric minimize (coste))
   (:goal (forall (?p - pendiente) (completado ?p)))
 )

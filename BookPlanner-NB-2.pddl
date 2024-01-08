@@ -7,6 +7,7 @@
     )
 
   (:init
+    (= (coste) 0)
     (= (mes) 1)
     (= (num enero) 1)
     (= (num febrero) 2)
@@ -85,6 +86,7 @@
 
   )
 
+  (:metric minimize (coste))
   (:goal (forall (?p - pendiente) (completado ?p)))
 )
 

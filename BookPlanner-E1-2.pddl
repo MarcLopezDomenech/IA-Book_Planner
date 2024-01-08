@@ -1,8 +1,8 @@
-(define (problem BookPlanner-paralelo2)
+(define (problem BookPlanner-e1_2)
    (:domain BookPlanner)
    (:objects 
-      P3 - pendiente
-      P1 P2 A1 A21 A22 A3 - normal
+      A B C D E F G H - pendiente
+      A B C D E F G- normal
       antes enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre - tiempo
     )
 
@@ -10,7 +10,7 @@
     (= (coste) 0)
     (= (mes) 1)
     (= (num enero) 1)
-    (= (num febrero) 2)
+    (= (num febrero) 2) 
     (= (num marzo) 3)
     (= (num abril) 4)
     (= (num mayo) 5)
@@ -34,32 +34,43 @@
     (= (paginasLibres noviembre) 800)
     (= (paginasLibres diciembre) 800)
 
-    (= (paralelo P1) 1)
-    (= (paralelo P2) 1)
-    (= (paralelo P3) 1)
-    (= (paralelo A1) 0)
-    (= (paralelo A21) 2)
-    (= (paralelo A22) 2)
-    (= (paralelo A3) 0)
+    (= (paginas A) 1)
+    (= (paginas B) 1)
+    (= (paginas C) 1)
+    (= (paginas D) 1)
+    (= (paginas E) 1)
+    (= (paginas F) 1)
+    (= (paginas G) 1)
+    (= (paginas H) 1)
 
-    (precondicion A21 A1)
-    (precondicion A22 A1)
-    (precondicion A3 A21)
-    (precondicion P1 A3)
+    (= (paralelo A) 0)
+    (= (paralelo B) 0)
+    (= (paralelo C) 0)
+    (= (paralelo D) 0)
+    (= (paralelo E) 0)
+    (= (paralelo F) 0)
+    (= (paralelo G) 0)
+    (= (paralelo H) 0)
 
-    (tien_prec A21)
-    (tien_prec A22)
-    (tien_prec A3)
-    (tien_prec P1)
+    (tien_prec H)
+    (tien_prec F)
+    (tien_prec G)
+    (tien_prec E)
 
-    (= (paginas P1) 0)
-    (= (paginas P2) 0)
-    (= (paginas P3) 0)
-    (= (paginas A1) 0)
-    (= (paginas A21) 0)
-    (= (paginas A22) 0)
-    (= (paginas A3) 0)
+    (precondicion H F)
+    (precondicion H G)
+    (precondicion H E)
+
+    (precondicion F A)
+    (precondicion G B)
+    (precondicion E C)
+    (precondicion E D)
+
+
+    
+
   )
+
   (:metric minimize (coste))
   (:goal (forall (?p - pendiente) (completado ?p)))
 )
